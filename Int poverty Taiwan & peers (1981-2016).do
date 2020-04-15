@@ -36,9 +36,12 @@ gen cpi_kr11 =94.717
 gen cpi_kr12 =96.789 
    
 * PPP & CPI factor      
-gen icp2011        =  15.99478497   // PPP 2011   
+gen icp2011_tw =  15.99478497   // PPP 2011
+gen icp2011_jp =  116.103		  
+gen icp2011_kr =  912.201
 local cc = substr("`ccyy'",1,2)   // country ISO    
-gen cpi2011        = (cpi_`ccyy' /  cpi_`cc'11)      
+gen cpi2011  = (cpi_`ccyy' /  cpi_`cc'11) 
+gen icp2011  = icp2011_`cc' 
       
 * Poverty lines(daily)      
 gen lp_190_2011ppp = 1.9      
